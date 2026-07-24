@@ -4,7 +4,8 @@ import axios from 'axios';
 import toast from 'react-hot-toast';
 import { LogOut, Search, RefreshCw } from 'lucide-react';
 
-const API_URL = 'http://localhost:5000/api';
+// ✅ UPDATED: Use your Render backend URL
+const API_URL = 'https://leadflow-crm-3kg3.onrender.com/api';
 
 function AdminPage() {
   const [leads, setLeads] = useState([]);

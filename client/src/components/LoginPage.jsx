@@ -4,6 +4,9 @@ import { useForm } from 'react-hook-form';
 import toast from 'react-hot-toast';
 import axios from 'axios';
 
+// ✅ ADD THIS LINE - Backend URL
+const API_URL = 'https://leadflow-crm-3kg3.onrender.com/api';
+
 function LoginPage() {
   const { register, handleSubmit, formState: { errors } } = useForm();
   const [isLoading, setIsLoading] = useState(false);
@@ -12,7 +15,8 @@ function LoginPage() {
   const onSubmit = async (data) => {
     setIsLoading(true);
     try {
-      const response = await axios.post('http://localhost:5000/api/auth/login', data);
+      // ✅ UPDATED: Use the API_URL variable
+      const response = await axios.post(`${API_URL}/auth/login`, data);
       if (response.data.success) {
         localStorage.setItem('token', response.data.token);
         localStorage.setItem('user', JSON.stringify(response.data.user));

@@ -3,6 +3,9 @@ import { useForm } from 'react-hook-form';
 import toast from 'react-hot-toast';
 import axios from 'axios';
 
+// ✅ ADD THIS LINE - Backend URL
+const API_URL = 'https://leadflow-crm-3kg3.onrender.com/api';
+
 const budgetOptions = [
   'Under $5,000',
   '$5,000 - $10,000',
@@ -18,7 +21,8 @@ function LandingPage() {
   const onSubmit = async (data) => {
     setIsSubmitting(true);
     try {
-      const response = await axios.post('http://localhost:5000/api/leads', data);
+      // ✅ UPDATED: Use the API_URL variable
+      const response = await axios.post(`${API_URL}/leads`, data);
       if (response.data.success) {
         toast.success('Lead submitted successfully! We will contact you soon.');
         reset();
