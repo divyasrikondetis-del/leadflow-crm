@@ -16,11 +16,20 @@ const supabase = createClient(
 // Make supabase available to routes
 app.locals.supabase = supabase;
 
-// Middleware
+// ✅ UPDATED CORS - Add your Vercel domain
 app.use(cors({
-  origin: ['http://localhost:5173', 'http://localhost:3000'],
-  credentials: true
+  origin: [
+    'http://localhost:5173',
+    'http://localhost:3000',
+    'https://leadflow-crm-flax.vercel.app',
+    'https://leadflow-crm.vercel.app',
+    'https://leadflow-crm-git-main-divyasrikondetis-dels-projects.vercel.app'
+  ],
+  credentials: true,
+  methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization']
 }));
+
 app.use(express.json());
 
 // Import routes
