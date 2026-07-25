@@ -21,11 +21,14 @@ app.use(cors({
   origin: [
     'http://localhost:5173',
     'http://localhost:3000',
+    'https://leadflow-crm-divya.vercel.app',
     'https://leadflow-crm-flax.vercel.app',
     'https://leadflow-crm.vercel.app',
     'https://leadflow-crm-git-main-divyasrikondetis-dels-projects.vercel.app'
   ],
-  credentials: true
+  credentials: true,
+  methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization']
 }));
 
 app.use(express.json());
