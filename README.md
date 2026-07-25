@@ -92,49 +92,6 @@ Lead Status Flow: New → Contacted → Closed
 
 ---
 
-# 📁 Project Structure
-
-LeadFlow-CRM
-│
-├── client
-│   │
-│   ├── src
-│   │   │
-│   │   ├── components
-│   │   │   ├── LandingPage.jsx
-│   │   │   ├── LoginPage.jsx
-│   │   │   ├── AdminPage.jsx
-│   │   │   └── ProtectedRoute.jsx
-│   │   │
-│   │   ├── App.jsx
-│   │   ├── main.jsx
-│   │   └── index.css
-│   │
-│   ├── package.json
-│   ├── vite.config.js
-│   └── index.html
-│
-├── server
-│   │
-│   ├── controllers
-│   │   ├── authController.js
-│   │   └── leadController.js
-│   │
-│   ├── middleware
-│   │   └── auth.js
-│   │
-│   ├── routes
-│   │   ├── authRoutes.js
-│   │   └── leadRoutes.js
-│   │
-│   ├── server.js
-│   ├── package.json
-│   └── .env
-│
-├── .gitignore
-├── README.md
-└── vercel.json
-
 # 🔑 Admin Credentials
 
 Email: admin@digitalheroes.com
