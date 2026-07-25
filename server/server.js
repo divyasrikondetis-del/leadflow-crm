@@ -16,7 +16,7 @@ const supabase = createClient(
 // Make supabase available to routes
 app.locals.supabase = supabase;
 
-// ✅ UPDATED CORS - Add your Vercel domain
+// Middleware
 app.use(cors({
   origin: [
     'http://localhost:5173',
@@ -25,9 +25,7 @@ app.use(cors({
     'https://leadflow-crm.vercel.app',
     'https://leadflow-crm-git-main-divyasrikondetis-dels-projects.vercel.app'
   ],
-  credentials: true,
-  methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'OPTIONS'],
-  allowedHeaders: ['Content-Type', 'Authorization']
+  credentials: true
 }));
 
 app.use(express.json());
@@ -40,21 +38,44 @@ const authRoutes = require('./routes/authRoutes');
 app.use('/api/leads', leadRoutes);
 app.use('/api/auth', authRoutes);
 
+// ✅ Root route
+app.get('/', (req, res) => {
+  res.json({
+    success: true,
+    message: '🚀 LeadFlow CRM Backend is Running'
+  });
+});
+
+// ✅ API route
+app.get('/api', (req, res) => {
+  res.json({
+    success: true,
+    message: 'LeadFlow CRM API is Running'
+  });
+});
+
 // Test endpoint
 app.get('/api/test', async (req, res) => {
   try {
-    const { data, error } = await supabase.from('leads').select('count');
+    const { data, error } = await supabase
+      .from('leads')
+      .select('count');
+
     if (error) throw error;
-    res.json({ 
-      message: '✅ Supabase connected successfully!', 
-      leads: data 
+
+    res.json({
+      message: '✅ Supabase connected successfully!',
+      leads: data
     });
   } catch (error) {
-    res.status(500).json({ error: error.message });
+    res.status(500).json({
+      error: error.message
+    });
   }
 });
 
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 8000;
+
 app.listen(PORT, () => {
   console.log(`✅ Server running on port ${PORT}`);
   console.log(`✅ Supabase URL: ${process.env.SUPABASE_URL}`);
