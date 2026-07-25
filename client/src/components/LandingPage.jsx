@@ -4,8 +4,7 @@ import toast from 'react-hot-toast';
 import axios from 'axios';
 
 // ✅ ADD THIS LINE - Backend URL
-const API_URL = 'https://leadflow-crm-3kg3.onrender.com/api';
-
+const API_URL = 'https://leadflow-crm-1-b9pc.onrender.com/api';
 const budgetOptions = [
   'Under $5,000',
   '$5,000 - $10,000',
