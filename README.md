@@ -95,10 +95,11 @@ Lead Status Flow: New → Contacted → Closed
 # 📁 Project Structure
 
 LeadFlow-CRM
-
 │
 ├── client
+│   │
 │   ├── src
+│   │   │
 │   │   ├── components
 │   │   │   ├── LandingPage.jsx
 │   │   │   ├── LoginPage.jsx
@@ -114,6 +115,7 @@ LeadFlow-CRM
 │   └── index.html
 │
 ├── server
+│   │
 │   ├── controllers
 │   │   ├── authController.js
 │   │   └── leadController.js
