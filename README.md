@@ -95,6 +95,7 @@ Lead Status Flow: New → Contacted → Closed
 # 📁 Project Structure
 
 LeadFlow-CRM
+
 │
 ├── client
 │   ├── src
@@ -131,8 +132,6 @@ LeadFlow-CRM
 ├── .gitignore
 ├── README.md
 └── vercel.json
-
----
 
 # 🔑 Admin Credentials
 
